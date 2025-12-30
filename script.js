@@ -1,11 +1,21 @@
-const apiKey = 'd720c9d44ee07cf5696d77650ccfbca3'; // Сіздің кілтіңіз
+const apiKey = 'd720c9d44ee07cf5696d77650ccfbca3';
+
+// Қазақстанның негізгі қалаларының тізімі
+const kzCities = ['Almaty', 'Astana', 'Shymkent', 'Aktau', 'Atyrau', 'Aktobe', 'Karaganda', 'Taraz', 'Pavlodar', 'Ust-Kamenogorsk', 'Kyzylorda', 'Uralsk', 'Kostanay', 'Semey'];
 
 const searchBtn = document.getElementById('searchBtn');
 const cityInput = document.getElementById('cityInput');
 const weatherResult = document.getElementById('weatherResult');
 const historyList = document.getElementById('historyList');
 
-document.addEventListener('DOMContentLoaded', updateHistoryUI);
+// Сайт жүктелгенде автоматты түрде орындалатын функция
+document.addEventListener('DOMContentLoaded', () => {
+    updateHistoryUI();
+    
+    // Кездейсоқ бір қаланы таңдау
+    const randomCity = kzCities[Math.floor(Math.random() * kzCities.length)];
+    getWeather(randomCity); // Соны бірден іздеу
+});
 
 searchBtn.addEventListener('click', () => {
     const city = cityInput.value.trim();
@@ -15,7 +25,6 @@ searchBtn.addEventListener('click', () => {
 });
 
 async function getWeather(city) {
-    // Сұрақ белгісі (?) және параметрлер түзетілді
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kk`;
 
     try {
