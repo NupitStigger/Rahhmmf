@@ -1,19 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>мой сайт</title>
+    <title>Ауа райы анықтамалығы</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <header>
-    <nav>
-        <a href="#">Главная</a>
-         <a href="#">Наши проекты</a>
-          <a href="#">Услуги</a>
-           <a href="#">Новости</a>
-            <a href="#">Контакты</a>
-    </nav>
-   </header> 
+    <div class="container">
+        <div class="weather-card">
+            <h2>Ауа райы анықтамалығы</h2>
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Қаланы енгізіңіз...">
+                <button id="searchBtn">Іздеу</button>
+            </div>
+
+            <div id="weatherResult" class="weather-result" style="display: none;">
+                <h3 id="cityName">---</h3>
+                <img id="weatherIcon" src="" alt="icon">
+                <p class="temp" id="temperature">--°C</p>
+                <p id="description">---</p>
+                <p>Ылғалдылық: <span id="humidity">--</span>%</p>
+            </div>
+
+            <div id="errorMessage" class="error"></div>
+
+            <div class="history">
+                <h4>Соңғы іздеулер:</h4>
+                <ul id="historyList"></ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
