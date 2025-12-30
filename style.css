@@ -1,25 +1,32 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #00b4db, #0083b0);
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     margin: 0;
 }
+.container { width: 350px; }
 .weather-card {
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    width: 350px;
+    padding: 25px;
+    border-radius: 20px;
     text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-.search-box { display: flex; gap: 5px; margin-bottom: 20px; }
+.search-box { display: flex; gap: 10px; margin-bottom: 20px; }
 input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
-button { background: #0083b0; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer; }
-.temp { font-size: 40px; font-weight: bold; margin: 10px 0; }
-.error { color: red; margin-top: 10px; }
+button { padding: 10px; background: #0083b0; color: white; border: none; border-radius: 5px; cursor: pointer; }
+.temp { font-size: 3rem; font-weight: bold; margin: 10px 0; }
+.error { color: red; margin-top: 10px; font-weight: bold; }
 .history { margin-top: 20px; text-align: left; border-top: 1px solid #eee; padding-top: 10px; }
 ul { list-style: none; padding: 0; }
-li { background: #f4f4f4; margin: 5px 0; padding: 8px; border-radius: 5px; }
+li { background: #f0f0f0; margin: 5px 0; padding: 8px; border-radius: 5px; cursor: pointer; }
+.info-link, .back-link {
+    display: block;
+    margin-top: 15px;
+    color: #0083b0;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
