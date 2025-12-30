@@ -3,34 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ауа райы анықтамалығы</title>
+    <title>Ауа райы</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="weather-card">
-            <h2>Ауа райы анықтамалығы</h2>
+            <h2>Ауа райы</h2>
             <div class="search-box">
-                <input type="text" id="cityInput" placeholder="Қаланы енгізіңіз (мысалы: Алматы)...">
+                <input type="text" id="cityInput" placeholder="Қала аты...">
                 <button id="searchBtn">Іздеу</button>
             </div>
 
             <div id="weatherResult" class="weather-result" style="display: none;">
-                <h3 id="cityName">---</h3>
+                <h3 id="cityName"></h3>
                 <img id="weatherIcon" src="" alt="icon">
-                <p class="temp" id="temperature">--°C</p>
-                <p id="description">---</p>
-                <p>Ылғалдылық: <span id="humidity">--</span>%</p>
+                <p class="temp" id="temperature"></p>
+                <p id="description"></p>
+                <p>Ылғалдылық: <span id="humidity"></span>%</p>
             </div>
 
             <div id="errorMessage" class="error"></div>
-
-            <div class="history">
-                <h4>Соңғы іздеулер:</h4>
-                <ul id="historyList"></ul>
-            </div>
-            
-            <a href="about.html" class="info-link">Жоба туралы мәлімет ℹ️</a>
         </div>
     </div>
     <script src="script.js"></script>
