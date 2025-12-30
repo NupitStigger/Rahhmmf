@@ -8,9 +8,15 @@
 </head>
 <body>
     <div class="weather-box">
+        <div class="search-container">
+            <input type="text" id="cityInput" placeholder="Қала аты...">
+            <button id="searchBtn">🔍</button>
+        </div>
+
         <h2 id="cityName">Жүктелуде...</h2>
         <div class="temp" id="temperature">--°C</div>
         <div class="info">Ылғалдылық: <span id="humidity">--</span>%</div>
+        <div id="errorMessage" class="error"></div>
     </div>
     <script src="script.js"></script>
 </body>
