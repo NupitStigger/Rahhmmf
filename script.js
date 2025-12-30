@@ -1,4 +1,4 @@
-const apiKey = 'd720c9d44ee07cf5696d77650ccfbca3';
+const apiKey = 'd720c9d44ee07cf5696d77650ccfbca3'; // Сіздің кілтіңіз
 
 const searchBtn = document.getElementById('searchBtn');
 const cityInput = document.getElementById('cityInput');
@@ -15,12 +15,14 @@ searchBtn.addEventListener('click', () => {
 });
 
 async function getWeather(city) {
-    // units=metric (Цельсий үшін) және lang=kk (Қазақ тілі үшін)
-   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kk`;
+    // Сұрақ белгісі (?) және параметрлер түзетілді
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kk`;
+
     try {
         const response = await fetch(url);
         
         if (!response.ok) {
+            if (response.status === 401) throw new Error('API кілті қате немесе әлі қосылмаған');
             if (response.status === 404) throw new Error('Қала табылмады');
             throw new Error('Желіде ақау болды');
         }
@@ -66,7 +68,6 @@ function updateHistoryUI() {
     history.forEach(city => {
         const li = document.createElement('li');
         li.textContent = city;
-        li.style.cursor = "pointer";
         li.onclick = () => {
             cityInput.value = city;
             getWeather(city);
@@ -74,6 +75,3 @@ function updateHistoryUI() {
         historyList.appendChild(li);
     });
 }
-
-
-
