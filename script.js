@@ -1,4 +1,4 @@
-const apiKey = 'СІЗДІҢ_API_КІЛТІҢІЗ_ОСЫНДА'; // OpenWeatherMap-тан алған кілтті қойыңыз
+const apiKey = d720c9d44ee07cf5696d77650ccfbca3 
 
 const searchBtn = document.getElementById('searchBtn');
 const cityInput = document.getElementById('cityInput');
@@ -75,3 +75,4 @@ function updateHistoryUI() {
         historyList.appendChild(li);
     });
 }
+
