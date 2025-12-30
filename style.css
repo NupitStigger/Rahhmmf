@@ -1,38 +1,43 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f172a; /* Күңгірт көк фон */
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
 }
-.weather-card {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-    width: 320px;
+
+.weather-box {
     text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 40px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
-h2 { color: #333; margin-top: 0; }
-.search-box { display: flex; gap: 8px; margin-bottom: 20px; }
-input { 
-    flex: 1; 
-    padding: 10px; 
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    outline: none;
+
+#cityName {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    color: #94a3b8;
 }
-button { 
-    padding: 10px 15px; 
-    background: #667eea; 
-    color: white; 
-    border: none; 
-    border-radius: 8px; 
-    cursor: pointer;
-    transition: 0.3s;
+
+.temp {
+    font-size: 6rem;
+    font-weight: 800;
+    margin: 10px 0;
+    background: linear-gradient(to bottom, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-button:hover { background: #5a67d8; }
-.temp { font-size: 3rem; font-weight: bold; color: #2d3748; margin: 10px 0; }
-.error { color: #e53e3e; margin-top: 10px; font-weight: bold; }
+
+.info {
+    font-size: 1.1rem;
+    color: #38bdf8;
+    font-weight: 500;
+}
