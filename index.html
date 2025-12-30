@@ -7,24 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="weather-card">
-            <h2>Ауа райы</h2>
-            <div class="search-box">
-                <input type="text" id="cityInput" placeholder="Қала аты...">
-                <button id="searchBtn">Іздеу</button>
-            </div>
-
-            <div id="weatherResult" class="weather-result" style="display: none;">
-                <h3 id="cityName"></h3>
-                <img id="weatherIcon" src="" alt="icon">
-                <p class="temp" id="temperature"></p>
-                <p id="description"></p>
-                <p>Ылғалдылық: <span id="humidity"></span>%</p>
-            </div>
-
-            <div id="errorMessage" class="error"></div>
-        </div>
+    <div class="weather-box">
+        <h2 id="cityName">Жүктелуде...</h2>
+        <div class="temp" id="temperature">--°C</div>
+        <div class="info">Ылғалдылық: <span id="humidity">--</span>%</div>
     </div>
     <script src="script.js"></script>
 </body>
