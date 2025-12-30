@@ -16,8 +16,7 @@ searchBtn.addEventListener('click', () => {
 
 async function getWeather(city) {
     // units=metric (Цельсий үшін) және lang=kk (Қазақ тілі үшін)
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kk`;
-
+   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kk`;
     try {
         const response = await fetch(url);
         
@@ -75,5 +74,6 @@ function updateHistoryUI() {
         historyList.appendChild(li);
     });
 }
+
 
 
