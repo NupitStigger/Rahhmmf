@@ -3,21 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ауа райы</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Қазақстан Ауа Райы</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00b4db, #0083b0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            width: 350px;
+        }
+        h1 { margin-bottom: 20px; }
+        input {
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            width: 70%;
+            outline: none;
+        }
+        button {
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: none;
+            background-color: #ff9800;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover { background-color: #e68a00; }
+        .result {
+            margin-top: 30px;
+            display: none; /* Алғашында жасырулы болады */
+        }
+        .temp { font-size: 3rem; font-weight: bold; margin: 10px 0; }
+        .info { font-size: 1.2rem; }
+        .city-name { font-size: 1.5rem; color: #ffd700; text-transform: uppercase; }
+    </style>
 </head>
 <body>
-    <div class="weather-box">
-        <div class="search-container">
-            <input type="text" id="cityInput" placeholder="Қала аты...">
-            <button id="searchBtn">🔍</button>
-        </div>
 
-        <h2 id="cityName">Жүктелуде...</h2>
-        <div class="temp" id="temperature">--°C</div>
-        <div class="info">Ылғалдылық: <span id="humidity">--</span>%</div>
-        <div id="errorMessage" class="error"></div>
+<div class="container">
+    <h1>Ауа райы</h1>
+    
+    <div class="search-box">
+        <input type="text" id="cityInput" placeholder="Қаланы жазыңыз...">
+        <button onclick="getWeather()">Іздеу</button>
     </div>
-    <script src="script.js"></script>
+
+    <div class="result" id="weatherResult">
+        <div class="city-name" id="displayCity"></div>
+        <div class="temp" id="displayTemp">0°C</div>
+        <div class="info">Ылғалдылық: <span id="displayHumidity">0</span>%</div>
+        <div id="status">Күн ашық ☀️</div>
+    </div>
+</div>
+
+<script>
+    function getWeather() {
+        const city = document.getElementById('cityInput').value;
+        const resultDiv = document.getElementById('weatherResult');
+
+        if (city === "") {
+            alert("Өтінемін, қала атын жазыңыз!");
+            return;
+        }
+
+        // Рандомды мәндерді генерациялау
+        const randomTemp = Math.floor(Math.random() * (40 - (-30) + 1)) + (-30); // -30 бен +40 арасы
+        const randomHumidity = Math.floor(Math.random() * 100); // 0 мен 100 арасы
+        
+        // Күйлер (күн ашық, жаңбыр т.б.)
+        const states = ["Күн ашық ☀️", "Бұлтты ☁️", "Жаңбырлы 🌧️", "Қар жауып тұр ❄️", "Желді 💨"];
+        const randomState = states[Math.floor(Math.random() * states.length)];
+
+        // Нәтижені шығару
+        document.getElementById('displayCity').innerText = city;
+        document.getElementById('displayTemp').innerText = randomTemp + "°C";
+        document.getElementById('displayHumidity').innerText = randomHumidity;
+        document.getElementById('status').innerText = randomState;
+
+        // Нәтиже блогын көрсету
+        resultDiv.style.display = "block";
+    }
+
+    // "Enter" батырмасын басқанда да іздеу үшін
+    document.getElementById('cityInput').addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            getWeather();
+        }
+    });
+</script>
+
 </body>
 </html>
